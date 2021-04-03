@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+#auth {
+  width: 100%;
+}
+#auth #auth-wrap {
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+#auth #auth-wrap form {
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+#auth #auth-wrap form input {
+  margin: 0 0 20px 0;
+}
+#auth #auth-wrap form .message {
+  margin: 0 0 20px 0;
+  padding: 10px 15px;
+}
+#auth #auth-wrap form .form-control {
+  padding: 15px;
+  border-radius: 1rem;
+  border: 1px solid #bbb;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+#auth #auth-wrap form .ask {
+  margin: 40px 0 0 0;
+  display: flex;
+  align-items: center;
+}
+#auth #auth-wrap form .ask p {
+  margin: 0 10px 0 0;
+}
+
+/*# sourceMappingURL=auth.css.map */

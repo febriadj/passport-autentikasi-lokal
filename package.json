@@ -1,0 +1,40 @@
+{
+  "name": "passport-autentikasi-lokal",
+  "version": "1.0.0",
+  "description": "autentikasi lokal menggunakan passportjs pada nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/febriadj/passport-otentikasi-lokal.git"
+  },
+  "keywords": [
+    "passport",
+    "passport-local",
+    "local-strategy",
+    "auth",
+    "authentication"
+  ],
+  "author": "febriadji",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/febriadj/passport-autentikasi-lokal/issues"
+  },
+  "homepage": "https://github.com/febriadj/passport-autentikasi-lokal#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
