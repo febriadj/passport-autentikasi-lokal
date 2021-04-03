@@ -16,8 +16,10 @@ body { font-family: $font-roboto; font-size: 15px; }
       margin: 0 0 40px 0;
       width: 100%;
       display: flex; justify-content: flex-end; align-items: center;
-      button {
+      .link-control {
         margin: 0 0 0 20px;
+      }
+      button {
         border: none; outline: none;
         padding: 10px;
         cursor: pointer;
