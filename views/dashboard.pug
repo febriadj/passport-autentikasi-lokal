@@ -11,8 +11,9 @@ html(lang="en")
     #dashboard
       #dashboard-wrap
         .logout
-          a(href="/logout") Log Out 
-          button(onclick="handleDelete()") Delete Account
+          a(href="/change" class="link-control") Change Password
+          a(href="/logout" class="link-control") Log Out 
+          button(onclick="handleDelete()" class="link-control") Delete Account
         table
           tr.header
             td.id ID
