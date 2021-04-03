@@ -10,6 +10,7 @@ const
 , { dashboardPage } = require('../controllers/dashboard')
 , { logout } = require('../controllers/logout')
 , { deleteAccount } = require('../controllers/delete')
+, { changePasswordPage, changePasswordPost } = require('../controllers/changePassword')
 
 // router login
 router.get('/login', loginPage)
@@ -24,6 +25,10 @@ router.get('/logout', logout)
 
 // router delete account
 router.get('/delete', deleteAccount)
+
+// router change password
+router.get('/change', changePasswordPage)
+router.post('/change', changePasswordPost)
 
 // router dashboard
 router.get('/', dashboardPage)
