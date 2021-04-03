@@ -9,7 +9,7 @@ exports.dashboardPage = async (req, res, next) => {
     const sql = await 'SELECT * FROM users WHERE id = ?'
     
     conn.query(sql, [req.session.passport.user], (err, result) => {
-      if (err) return console.log(err)
+      if (err) throw err
 
       async function createdDate() {
         const date = await new Date(result[0].created_at)
