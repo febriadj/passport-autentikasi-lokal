@@ -17,12 +17,12 @@ module.exports = () => {
       conn.query(sql, [nameOrEmail, nameOrEmail], (err, user) => {
         if (err) return done(err)
 
-        if (bcrypt.compareSync(password, user[0].password) == false) {
-          return done(null, false, { message: 'password do not match' })
-        }
-
         if (!user || user.length == 0) {
           return done(null, false, { message: 'user not exists' })
+        }
+        
+        if (bcrypt.compareSync(password, user[0].password) == false) {
+          return done(null, false, { message: 'password do not match' })
         }
 
         return done(null, user[0])
