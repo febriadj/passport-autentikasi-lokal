@@ -1,6 +1,8 @@
 'use strict'
 
-const conn = require('../config/database')
+const 
+  conn = require('../config/database')
+, bcrypt = require('bcryptjs')
 
 exports.changePasswordPage = async (req, res, next) => {
   try {
@@ -28,7 +30,9 @@ exports.changePasswordPost = async (req, res, next) => {
       })
     }
 
-    conn.query(sql, [password, userId], (err, result) => {
+    const passHash = await bcrypt.hashSync(password, 10)
+
+    conn.query(sql, [passHash, userId], (err, result) => {
       if (err) throw err
 
       res.status(301).redirect('/')
