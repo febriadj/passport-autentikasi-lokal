@@ -16,7 +16,7 @@ const databaseRun = async () => {
     const users = await usersTable()
 
     db.connect(err => {
-      if (err) return console.log(err)
+      if (err) throw err
 
       db.query(users, err => err ? console.log(err) : null)
       console.log('Mysql Connected')
