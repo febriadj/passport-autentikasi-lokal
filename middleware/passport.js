@@ -4,6 +4,7 @@ const
   passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy
 , conn = require('../config/database')
+, bcrypt = require('bcryptjs')
 
 module.exports = () => {
   passport.use( 
@@ -11,10 +12,14 @@ module.exports = () => {
       usernameField: 'nameOrEmail', passwordField: 'password' 
     },
     async (nameOrEmail, password, done) => {
-      const sql = await `SELECT * FROM users WHERE ( username = ? OR email = ? ) AND password = ?`
+      const sql = await `SELECT * FROM users WHERE username = ? OR email = ?`
 
-      conn.query(sql, [nameOrEmail, nameOrEmail, password], (err, user) => {
+      conn.query(sql, [nameOrEmail, nameOrEmail], (err, user) => {
         if (err) return done(err)
+
+        if (bcrypt.compareSync(password, user[0].password) == false) {
+          return done(null, false, { message: 'password do not match' })
+        }
 
         if (!user || user.length == 0) {
           return done(null, false, { message: 'user not exists' })

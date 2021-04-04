@@ -1,6 +1,8 @@
 'use strict'
 
-const conn = require('../config/database')
+const 
+  conn = require('../config/database')
+, bcrypt = require('bcryptjs')
 
 exports.registerPage = async (req, res, next) => {
   try {
@@ -32,7 +34,9 @@ exports.registerPost = async (req, res, next) => {
       })
     }
 
-    conn.query(sql, [username, email, password], (err, result) => {
+    const passHash = await bcrypt.hashSync(password, 10)
+
+    conn.query(sql, [username, email, passHash], (err, result) => {
       if (err) return res.status(401).render('register', {
         message: 'Username or Email has been used'
       })
